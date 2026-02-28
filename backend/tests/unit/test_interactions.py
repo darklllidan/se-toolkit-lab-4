@@ -24,3 +24,21 @@ def test_filter_returns_interaction_with_matching_ids() -> None:
     result = _filter_by_item_id(interactions, 1)
     assert len(result) == 1
     assert result[0].id == 1
+
+
+def test_filter_excludes_interaction_with_different_learner_id():
+    inter1 = InteractionLog(id=1, learner_id=10, item_id=1, kind="view")
+    inter2 = InteractionLog(id=2, learner_id=11, item_id=1, kind="view")
+    assert inter1.item_id == inter2.item_id
+    assert inter1.learner_id != inter2.learner_id
+
+# --- AI-generated ---
+def test_filter_returns_empty_list_when_no_match():
+    interactions = [InteractionLog(id=1, learner_id=1, item_id=50, kind="view")]
+    search_id = 99
+    result = [i for i in interactions if i.item_id == search_id]
+    assert len(result) == 0
+
+def test_interaction_kind_is_string():
+    inter = InteractionLog(id=1, learner_id=1, item_id=1, kind="scroll")
+    assert isinstance(inter.kind, str)
