@@ -6,6 +6,7 @@ const STORAGE_KEY = 'api_token'
 interface Item {
   id: number
   type: string
+  description: string;
   title: string
   created_at: string
 }
@@ -92,6 +93,7 @@ function App() {
             <tr>
               <th>ID</th>
               <th>Type</th>
+              <th>Description</th>
               <th>Title</th>
               <th>Created at</th>
             </tr>
@@ -101,6 +103,7 @@ function App() {
               <tr key={item.id}>
                 <td>{item.id}</td>
                 <td>{item.type}</td>
+                <td>{item.description}</td>
                 <td>{item.title}</td>
                 <td>{item.created_at}</td>
               </tr>
