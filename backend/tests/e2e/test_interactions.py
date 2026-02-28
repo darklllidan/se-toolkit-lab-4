@@ -8,4 +8,6 @@ def test_get_interactions_returns_200(client):
 def test_get_interactions_response_is_a_list(client):
     response = client.get("/interactions")
     assert isinstance(response.json(), list)
+
+
     
