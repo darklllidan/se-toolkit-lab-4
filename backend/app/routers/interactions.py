@@ -19,6 +19,7 @@ def _filter_by_item_id(
     return [i for i in interactions if i.item_id == item_id]
 
 
+
 @router.get("/", response_model=list[InteractionModel])
 async def get_interactions(
     item_id: int | None = None,
