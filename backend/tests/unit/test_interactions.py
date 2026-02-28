@@ -42,3 +42,5 @@ def test_filter_returns_empty_list_when_no_match():
 def test_interaction_kind_is_string():
     inter = InteractionLog(id=1, learner_id=1, item_id=1, kind="scroll")
     assert isinstance(inter.kind, str)
+
+
